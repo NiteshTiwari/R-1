@@ -8,18 +8,15 @@
 
 rm(list=ls())
 
-# setwd("~/Dropbox/R/AssetPriceForecasting")
-# this.dir <- ("~/Dropbox/R/AssetPriceForecasting")
-# setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-setwd('C:/SRDEV/R')
-this.dir <- ('C:/SRDEV/R')
-# setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# setwd('C:/SRDEV/R_R/R')
-# this.dir <- ('C:/SRDEV/R_R/R')
-
 start <- print(Sys.time())
+home <- 1
+if (home==1){
+  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+}else{
+  setwd('C:/SRDEV/R/')
+  this.dir <- ('C:/SRDEV/R/')
+}
 del.sat <- 1
 add.data <- 0
 assets.name <- cbind(c("EUR/USD","USD/JPY","GBP/USD", "USD/CHF", "AUD/USD", "USD/CAD", 

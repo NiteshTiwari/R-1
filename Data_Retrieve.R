@@ -53,10 +53,13 @@
   }
   
   if (api==1){
-    # sc.data <- read.csv(paste("C:\SRDEV\P_Python",gsub("/","_",asset),
-    # "_D",".csv",sep=""))
-    sc.data <- read.csv(paste("C:/SRDEV/P_Python/",gsub("/","_",asset),
-    "_D",".csv",sep=""))
+    if (home==1){
+      sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
+      "_D",".csv",sep=""))
+    }else{
+      sc.data <- read.csv(paste("C:/SRDEV/Data/",gsub("/","_",asset),
+      "_D",".csv",sep=""))
+    }
     if (del.sat==1){
       sc.data$Time <- substr(sc.data$Time,1,11)
       # index(sc.data) <- as.Date(sc.data$Time, "%Y-%m-%d")
