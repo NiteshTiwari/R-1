@@ -1,4 +1,4 @@
-# July 2016
+# Changelog at the end
 # forecasting workflow
 # mkil
 # ARMA_model.R --> model estimaton
@@ -8,18 +8,15 @@
 
 rm(list=ls())
 
-# setwd("~/Dropbox/R/AssetPriceForecasting")
-# this.dir <- ("~/Dropbox/R/AssetPriceForecasting")
-# setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-setwd('C:/SRDEV/R/ARMA_H1')
-this.dir <- ('C:/SRDEV/R/ARMA_H1')
-# setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-# setwd('C:/SRDEV/R_R/R')
-# this.dir <- ('C:/SRDEV/R_R/R')
-
 start <- print(Sys.time())
+home <- 1
+if (home==1){
+  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')
+  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')
+}else{
+  setwd('C:/SRDEV/R/ARMA_H1')
+  this.dir <- ('C:/SRDEV/R/ARMA_H1')
+}
 del.sat <- 1
 add.data <- 0
 assets.name <- cbind(c("EUR/USD","USD/JPY","GBP/USD", "USD/CHF", "AUD/USD", "USD/CAD", 
@@ -111,11 +108,9 @@ write.table(forecasts, file=paste(this.dir,"/forecasts/","ARMA_forecasts2016_hou
 end <- print(Sys.time())
 print(end-start)
 
-
-
-
-
-
+# CHANGELOG
+# 09 aug 2016
+# adjust workflow for auto-adjustment between home & work computer
 
 # Additional Code
 # write.table(data, "clipboard", sep="\t", row.names=TRUE)
