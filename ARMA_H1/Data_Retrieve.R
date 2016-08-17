@@ -57,7 +57,7 @@
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
       "_H1",".csv",sep=""))
     }else{
-      sc.data <- read.csv(paste("C:/SRDEV/P_Python/",gsub("/","_",asset),
+      sc.data <- read.csv(paste("C:/SRDEV/Data/",gsub("/","_",asset),
       "_H1",".csv",sep=""))
     }
     if (del.sat==1){
