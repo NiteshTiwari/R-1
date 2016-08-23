@@ -9,7 +9,7 @@
 rm(list=ls())
 
 start <- print(Sys.time())
-home <- 0
+home <- 1
 if (home==1){
   setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
@@ -29,7 +29,7 @@ assets.source <- cbind(c("api","api","api", "api", "api", "api", "api", "api",
                          "api","api","api","api","api"))
 
 assets <- cbind(assets.name,assets.source)
-forecasts <- matrix(nrow=nrow(assets),ncol=16)
+forecasts <- matrix(nrow=nrow(assets),ncol=24)
 # colnames(forecasts) <- c("Date", "Time UTC+1", "Model", "Asset", "AR Forecast", "AR Rolling Hit-Rate",
                          # "AR Alpha", "AR ACD", "MA Forecast", "MA Rolling Hit-Rate", "MA Forecast",
                          # "ARMA Forecast", "AMRA Rolling Hit-Rate", "ARMA ACD", "Forecast",
@@ -72,6 +72,14 @@ for (j in 1:nrow(assets)){
   forecasts[j,5] <- round(100*HitRate,1)
   forecasts[j,15] <- d.sd
   forecasts[j,16] <- d.mean
+  forecasts[j,17] <- qnt.a[1]
+  forecasts[j,18] <- qnt.a[2]
+  forecasts[j,19] <- qnt.a[3]
+  forecasts[j,20] <- qnt.a[4]
+  forecasts[j,21] <- qnt.a[5]
+  forecasts[j,22] <- qnt.a[6]
+  forecasts[j,23] <- qnt.a[7]
+  forecasts[j,24] <- qnt.a[8]
   
   # MA
   
@@ -103,7 +111,7 @@ for (j in 1:nrow(assets)){
 }
 
 
-write.table(forecasts, file=paste(this.dir,"/forecasts/","ARMA_forecasts2016_hourly",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
+write.table(forecasts, file=paste(this.dir,"/forecasts/","ARMA_forecasts2016",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
 
 end <- print(Sys.time())
 print(end-start)

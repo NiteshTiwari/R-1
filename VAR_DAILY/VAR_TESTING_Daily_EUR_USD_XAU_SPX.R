@@ -13,31 +13,28 @@
   
   setwd(this.dir)
   
-  asset <- "EUR/USD"
-  
   oanda <- 1
   google <-0
   quandl <- 0
   add.data <- 0
   del.sat <- 0
   intraday <- 0
+  api <-1
   
+  asset <- 'EUR/USD'
   source("Data_Retrieve.r")
-  # Collect index (S&P 500) data from Yahoo
-    date.start <- paste(format(start(sc.data),"%Y"),format(start(sc.data),"%m"),format(start(sc.data),"%d"))
-    date.end <- paste(format(end(sc.data),"%Y"),format(end(sc.data),"%m"),format(end(sc.data),"%d"))
-    SPX <- getYahooData("^GSPC", start=date.start, end=date.end)
-    SPX <- SPX$Close
-  # collect Gold Prices
-    XAU <- getFX("XAU/USD",
-                     from = Sys.Date() - 360,
-                     tp = Sys.Date(),
-                     env = parent.frame(),
-                     verbose = FALSE,
-                     warning = TRUE,
-                     auto.assign = FALSE)
+  asset1 <- sc.data
+  
+  asset <- 'XAU/USD'
+  source("Data_Retrieve.r")
+  asset2 <- sc.data
+  
+  asset <- 'SPX500/USD'
+  source("Data_Retrieve.r")
+  asset3 <- sc.data
+  
   # Create Matrix with all prices and ommit NA days along the way :)
-    mat <- merge(sc.data, XAU, SPX)
+    mat <- merge(asset1, asset2, asset3)
     mat <- data.frame(value=coredata(mat),timestamp=index(mat))
     mat <- na.omit(mat)
     colnames(mat)[3] <- "value.SPX"

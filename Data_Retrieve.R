@@ -6,7 +6,7 @@
   # Select Asset & Data Source
 
   standalone <- 0
-  home <- 0
+  home <- 1
   if (home==1){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
@@ -20,7 +20,7 @@
     # setwd('C:/SRDEV/R_R/R')
     # setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     # setwd('C:/SRDEV/R_R/R')
-    rm(list=ls())
+    #rm(list=ls())4???
     asset <- "USD/JPY"
     oanda <- 0
     google <- 0

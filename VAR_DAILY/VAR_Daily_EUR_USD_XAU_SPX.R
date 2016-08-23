@@ -10,10 +10,20 @@
   library(vars)
   
   standalone <- 1
+  home <- 1
+  if (home==1){
+    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
+    this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
+  }else{
+    setwd('C:/SRDEV/R/VAR_DAILY')
+    this.dir <- ('C:/SRDEV/R/VAR_DAILY')
+  }
   
   if (standalone==1){
     rm(list=ls())    
-    asset <- "EUR/USD"
+    api <-1
+    
+    
     assets.VAR <- cbind(c("EUR/USD","XAU/USD"),c("oanda","oanda"))
     assets.VAR.number <- nrow(assets.VAR)
     oanda <- 1
@@ -24,28 +34,21 @@
     del.sat <- 0
   }
   
+  asset <- 'EUR/USD'
   source("Data_Retrieve.r")
+  asset1 <- sc.data
   
-  # Collect index (S&P 500) data from Yahoo
+  asset <- 'XAU/USD'
+  source("Data_Retrieve.r")
+  asset2 <- sc.data
   
-    date.start <- paste(format(start(sc.data),"%Y"),format(start(sc.data),"%m"),format(start(sc.data),"%d"))
-    date.end <- paste(format(end(sc.data),"%Y"),format(end(sc.data),"%m"),format(end(sc.data),"%d"))
+  asset <- 'SPX500/USD'
+  source("Data_Retrieve.r")
+  asset3 <- sc.data
   
-    SPX <- getYahooData("^GSPC", start=date.start, end=date.end)
-    SPX <- SPX$Close
-
-  
-  # collect Gold Prices
-    XAU <- getFX("XAU/USD",
-                     from = Sys.Date() - 360,
-                     tp = Sys.Date(),
-                     env = parent.frame(),
-                     verbose = FALSE,
-                     warning = TRUE,
-                     auto.assign = FALSE)
-    
   # Create Matrix with all prices and ommit NA days along the ways :)
-    mat <- merge(sc.data, XAU, SPX)
+    mat <- merge(asset1, asset2)
+    
     mat <- data.frame(value=coredata(mat),timestamp=index(mat))
     mat <- na.omit(mat)
     colnames(mat)[1] <- assets.VAR[1,1]

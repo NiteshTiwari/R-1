@@ -107,7 +107,7 @@
   
   # VaR calculations
   if (AR==1){
-    qnt.a <- round(quantile(abs(data_fd),probs=c(0.25,0.5,0.75,0.8,0.9,0.95,0.99),
+    qnt.a <- round(quantile(abs(data_fd),probs=c(0.25,0.5,0.75,0.8,0.9,0.95,0.99,1),
       na.rm=TRUE,names=TRUE,type=9),4)
   }
   
