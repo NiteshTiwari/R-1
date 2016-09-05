@@ -30,6 +30,7 @@
   del.sat <- 0
   intraday <- 0
   api <-1
+  timeframe <- "D"
 
       np <- 0
       n <- 0
@@ -47,9 +48,10 @@
         diff.forecast <- forecast$fcst$USD_NOK[1] - mat.T$USD_NOK[nrow(mat.T)]
         diff.actual <- coredata(mat$USD_NOK[j+1])-coredata(mat$USD_NOK[j])
         # Calculation of Hit Rate          
+        if (abs(diff.forecast)>0.00){
         if (sign(diff.forecast)==sign(diff.actual)){
-          np=np+1}
-          n=n+1
+            np=np+1}#}
+          n=n+1}
         # print(summary(forecast))
         }    
       
