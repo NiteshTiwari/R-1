@@ -29,6 +29,7 @@
     add.data <- 0
     del.sat <- 1
     intraday <- 0
+    timeframe <- "D"
   }
   
   if (oanda==1){
@@ -62,10 +63,10 @@
   if (api==1){
     if (home==1){
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
-      "_D",".csv",sep=""))
+      "_",timeframe,".csv",sep=""))
     }else{
       sc.data <- read.csv(paste("C:/SRDEV/Data/",gsub("/","_",asset),
-      "_D",".csv",sep=""))
+      "_",timeframe,".csv",sep=""))
     }
     if (del.sat==1){
       sc.data$Time <- substr(sc.data$Time,1,11)
