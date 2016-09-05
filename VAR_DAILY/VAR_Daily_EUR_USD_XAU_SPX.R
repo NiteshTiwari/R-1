@@ -30,7 +30,7 @@
     add.data <- 0
     intraday <- 0
     del.sat <- 0
-    timeframe <- "D"
+    timeframe <- "H1"
   }
   
   asset <- 'USD_NOK'
@@ -43,7 +43,7 @@
   asset2 <- sc.data
   names(asset2)[names(asset2)=="closeBid"] <- asset
   
-  asset <- 'XAU_USD'
+  asset <- 'SPX500_USD'
   source("Data_Retrieve.r")
   asset3 <- sc.data
   names(asset3)[names(asset3)=="closeBid"] <- asset
