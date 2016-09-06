@@ -7,7 +7,13 @@
 
   standalone <- 0
   home <- 0
-  
+  if (home==1){
+    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+  }else{
+    setwd('C:/SRDEV/R/')
+    this.dir <- ('C:/SRDEV/R/')
+  }
   if (standalone==1){
     print("standalone = TRUE")
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
@@ -23,6 +29,7 @@
     add.data <- 0
     del.sat <- 1
     intraday <- 0
+    timeframe <- "D"
   }
   
   if (oanda==1){
@@ -54,17 +61,17 @@
   }
   
   if (api==1){
-    if(home==1){
+    if (home==1){
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
-      "_H1",".csv",sep=""))
+      "_",timeframe,".csv",sep=""))
     }else{
       sc.data <- read.csv(paste("C:/SRDEV/Data/",gsub("/","_",asset),
-      "_H1",".csv",sep=""))
+      "_",timeframe,".csv",sep=""))
     }
     if (del.sat==1){
-      sc.data$Time <- substr(sc.data$Time,1,19)
+      sc.data$Time <- substr(sc.data$Time,1,11)
       # index(sc.data) <- as.Date(sc.data$Time, "%Y-%m-%d")
-      rownames(sc.data) <- as.POSIXct(sc.data$Time)
+      rownames(sc.data) <- as.Date(sc.data$Time, "%Y-%m-%d")
       sc.data$Time <- NULL
       sc.data <- as.xts(sc.data)
     }

@@ -6,7 +6,7 @@
   # Select Asset & Data Source
 
   standalone <- 0
-  home <- 1
+  home <- 0
   if (home==1){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')

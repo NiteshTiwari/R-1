@@ -11,15 +11,15 @@
   library(vars)
   
   standalone <- 0
-  home <- 1
+  home <- 0
   if (home==1){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
   }else{
-    setwd('C:/SRDEV/R/VAR_DAILY')
-    this.dir <- ('C:/SRDEV/R/VAR_DAILY')
+    setwd('C:/SRDEV/R/VAR/DAILY')
+    this.dir <- ('C:/SRDEV/R/VAR/DAILY')
   }
-  
+  timeframe <- "D"
   if (standalone==1){
     rm(list=ls())    
     api <-1
@@ -30,7 +30,7 @@
     add.data <- 0
     intraday <- 0
     del.sat <- 0
-    timeframe <- "H1"
+    timeframe <- "D"
   }
   
   asset <- 'USD_NOK'
@@ -52,8 +52,8 @@
     mat <- merge(asset1, asset2)
     
     # mat <- data.frame(value=coredata(mat),timestamp=index(mat))
-    mat <- merge(asset1,asset2,by="Time")
-    mat <- merge(mat,asset3,by="Time")
+    mat <- merge(asset1,asset2)
+    mat <- merge(mat,asset3)
     mat <- na.omit(mat)
     # Use first differences
     # mat <- na.omit(diff(mat))

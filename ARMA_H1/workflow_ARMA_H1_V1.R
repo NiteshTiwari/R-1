@@ -9,7 +9,7 @@
 rm(list=ls())
 
 start <- print(Sys.time())
-home <- 1
+home <- 0
 if (home==1){
   setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')
   this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')

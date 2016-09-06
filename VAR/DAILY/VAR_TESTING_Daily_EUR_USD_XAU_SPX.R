@@ -12,13 +12,13 @@
   
   standalone <- 0
   
-  home <- 1
+  home <- 0
   if (home==1){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
   }else{
-    setwd('C:/SRDEV/R/VAR_DAILY')
-    this.dir <- ('C:/SRDEV/R/VAR_DAILY')
+    setwd('C:/SRDEV/R/VAR/DAILY')
+    this.dir <- ('C:/SRDEV/R/VAR/DAILY')
   }
   
   setwd(this.dir)
