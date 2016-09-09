@@ -9,19 +9,17 @@
   print(paste("Start: ", Sys.time()))
   library(quantmod)
   library(vars)
-  
+
   standalone <- 0
-  
-  home <- 0
-  if (home==1){
-    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
-    this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR_DAILY')
+  COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
+  print(paste("COLOCATION =",COLOCATION),sep="")
+  if (COLOCATION=="HOME"){
+    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR/H1/')
+    this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   }else{
-    setwd('C:/SRDEV/R/VAR/DAILY')
-    this.dir <- ('C:/SRDEV/R/VAR/DAILY')
+    setwd('C:/SRDEV/R/')
+    this.dir <- ('C:/SRDEV/R/')
   }
-  
-  setwd(this.dir)
   
   oanda <- 0
   google <-0
@@ -35,7 +33,7 @@
       np <- 0
       n <- 0
       
-      source("VAR_Daily_EUR_USD_XAU_SPX.R")
+      source("VAR_H1_EUR_USD_XAU_SPX.R")
       
       for(j in 250:nrow(mat)-1){
         mat.T <- mat[(j-249):j,]

@@ -9,8 +9,15 @@ standalone <- 0
 if (standalone==1){
   rm(list=ls())
   # this.dir <- dirname(parent.frame(2)$ofile)
-  this.dir <- ('C:/SRDEV/R_R/R')
-  setwd(this.dir)
+  COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
+  print(paste("COLOCATION =",COLOCATION),sep="")
+  if (COLOCATION=="HOME"){
+    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+  }else{
+    setwd('C:/SRDEV/R/')
+    this.dir <- ('C:/SRDEV/R/')
+  }
   intraday <- 0
   oanda <- 0
   google <- 0
@@ -71,6 +78,8 @@ for(jc in 200:(nrow(sc.data)-1)){
   }
   
   # Calculation of Hit Rate          
+
+  if (!is.na(sign(coredata(actual.diff[(jc+1),])))){
   if (sign(coredata(actual.diff[(jc+1),]))==coredata(sign(data.pred$pred))){
     if(i==1){
 #       print(actual.diff[(jc+1),])
@@ -79,6 +88,8 @@ for(jc in 200:(nrow(sc.data)-1)){
     np=np+1
   }
   n=n+1
+  testing <- c(testing,sign(coredata(actual.diff[(jc+1),])))
+  }else{cna=cna+1}
 }
 
 

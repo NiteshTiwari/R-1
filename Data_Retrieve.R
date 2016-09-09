@@ -6,8 +6,7 @@
   # Select Asset & Data Source
 
   standalone <- 0
-  home <- 0
-  if (home==1){
+  if (COLOCATION=="HOME"){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   }else{
@@ -16,11 +15,15 @@
   }
   if (standalone==1){
     print("standalone = TRUE")
-    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    if (COLOCATION=="HOME"){
+      setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    }else{
+      setwd('C:/SRDEV/R/')
+    }
     # setwd('C:/SRDEV/R_R/R')
     # setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     # setwd('C:/SRDEV/R_R/R')
-    #rm(list=ls())4???
+    # rm(list=ls())
     asset <- "USD/JPY"
     oanda <- 0
     google <- 0
@@ -60,7 +63,7 @@
   }
   
   if (api==1){
-    if (home==1){
+    if (COLOCATION=='HOME'){
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
       "_D",".csv",sep=""))
     }else{

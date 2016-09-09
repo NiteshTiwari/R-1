@@ -4,13 +4,15 @@
 # ARMA_model.R --> model estimaton
 # ARMA_TEST.R --> rolling backtesting
 # calculate mean average deviations
-# calculate standard deviations
+# calculate Wstandard deviations
 
 rm(list=ls())
 
 start <- print(Sys.time())
-home <- 0
-if (home==1){
+
+COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
+print(paste("COLOCATION =",COLOCATION),sep="")
+if (COLOCATION=="HOME"){
   setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
 }else{

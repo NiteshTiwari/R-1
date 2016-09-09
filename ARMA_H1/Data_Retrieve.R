@@ -10,7 +10,12 @@
   
   if (standalone==1){
     print("standalone = TRUE")
-    setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    print("standalone = TRUE")
+    if (COLOCATION=="HOME"){
+      setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+    }else{
+      setwd('C:/SRDEV/R/')
+    }
     # setwd('C:/SRDEV/R_R/R')
     # setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     # setwd('C:/SRDEV/R_R/R')
@@ -54,7 +59,7 @@
   }
   
   if (api==1){
-    if(home==1){
+    if(COLOCATION=="HOME"){
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
       "_H1",".csv",sep=""))
     }else{

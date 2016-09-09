@@ -9,13 +9,15 @@
 rm(list=ls())
 
 start <- print(Sys.time())
-home <- 0
-if (home==1){
-  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')
-  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1/')
+
+COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
+print(paste("COLOCATION =",COLOCATION),sep="")
+if (COLOCATION=="HOME"){
+  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
 }else{
-  setwd('C:/SRDEV/R/ARMA_H1')
-  this.dir <- ('C:/SRDEV/R/ARMA_H1')
+  setwd('C:/SRDEV/R/')
+  this.dir <- ('C:/SRDEV/R/')
 }
 del.sat <- 1
 add.data <- 0
@@ -36,6 +38,7 @@ forecasts <- matrix(nrow=nrow(assets),ncol=24)
                          # "Last Input Price", "AR Alpha", "Rolling Hit-Rate", "SD", "MAD", "ACD")
 intraday <-0
 pt <- 0
+cna <- 0
 # Sys.Date()
 
  for (j in 1:nrow(assets)){
@@ -111,7 +114,7 @@ pt <- 0
  }
 
 
-write.table(forecasts, file=paste("./..","/forecasts/","ARMA_forecasts2016_hourly",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
+write.table(forecasts, file=paste(this.dir,"/forecasts/","ARMA_forecasts2016_hourly",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
 
 end <- print(Sys.time())
 print(end-start)

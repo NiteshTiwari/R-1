@@ -4,10 +4,11 @@
   library(quantmod)
   library(Quandl)
   # Select Asset & Data Source
-
+  
   standalone <- 0
-  home <- 0
-  if (home==1){
+  COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
+  print(paste("COLOCATION =",COLOCATION),sep="")
+  if (COLOCATION=="HOME"){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   }else{
@@ -61,7 +62,7 @@
   }
   
   if (api==1){
-    if (home==1){
+    if (COLOCATION=="HOME"){
       sc.data <- read.csv(paste("C:/Users/Michael Kilchenmann/Dropbox/Python/Data/",gsub("/","_",asset),
       "_",timeframe,".csv",sep=""))
     }else{
