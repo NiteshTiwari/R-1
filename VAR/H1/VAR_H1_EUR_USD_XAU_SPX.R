@@ -11,16 +11,24 @@
   library(vars)
   
   standalone <- 0
+  oanda <-0
+  quandl <- 0
+  google <- 0
+  del.sat <-0
+  intraday <-0
+  add.data <- 0
+  api <- 1
+  
   COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
   print(paste("COLOCATION =",COLOCATION),sep="")
   if (COLOCATION=="HOME"){
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR/H1')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
   }else{
-    setwd('C:/SRDEV/R/')
-    this.dir <- ('C:/SRDEV/R/')
+    setwd('C:/SRDEV/R/VAR/H1')
+    this.dir <- ('C:/SRDEV/R/VAR/H1')
   }
-  timeframe <- "D"
+  timeframe <- "H1"
   if (standalone==1){
     rm(list=ls())    
     api <-1
