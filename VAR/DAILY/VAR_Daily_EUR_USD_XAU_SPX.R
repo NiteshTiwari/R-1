@@ -10,6 +10,13 @@
   library(quantmod)
   library(vars)
   
+  oanda <- 0
+  add.data <- 0
+  quandl <- 0
+  del.sat <- 0
+  google <- 0
+  api <-1
+  
   standalone <- 0
   COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
   print(paste("COLOCATION =",COLOCATION),sep="")

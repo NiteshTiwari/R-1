@@ -47,10 +47,11 @@
         diff.actual <- coredata(mat$USD_NOK[j+1])-coredata(mat$USD_NOK[j])
         # Calculation of Hit Rate          
         if (abs(diff.forecast)>0.00){
+          print(diff.forecast)
         if (sign(diff.forecast)==sign(diff.actual)){
             np=np+1}#}
           n=n+1}
-        # print(summary(forecast))
+        print(forecast$fcst)
         }    
       
       print(paste("Hit rate =",round(100*np/n,1),"%"))

@@ -17,8 +17,8 @@
     setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR/DAILY')
     this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/VAR/')
   }else{
-    setwd('C:/SRDEV/R/')
-    this.dir <- ('C:/SRDEV/R/')
+    setwd('C:/SRDEV/R/VAR/DAILY')
+    this.dir <- ('C:/SRDEV/R/VAR/DAILY')
   }
   
   oanda <- 0
