@@ -13,11 +13,11 @@ start <- print(Sys.time())
 COLOCATION <- Sys.getenv("COLOCATION", unset = NA)
 print(paste("COLOCATION =",COLOCATION),sep="")
 if (COLOCATION=="HOME"){
-  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
-  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+  setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1')
+  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1')
 }else{
-  setwd('C:/SRDEV/R/')
-  this.dir <- ('C:/SRDEV/R/')
+  setwd('C:/SRDEV/R/ARMA_H1')
+  this.dir <- ('C:/SRDEV/R/ARMA_H1')
 }
 del.sat <- 1
 add.data <- 0

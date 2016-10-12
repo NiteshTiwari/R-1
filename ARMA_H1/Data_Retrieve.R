@@ -12,9 +12,9 @@
     print("standalone = TRUE")
     print("standalone = TRUE")
     if (COLOCATION=="HOME"){
-      setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
+      setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1')
     }else{
-      setwd('C:/SRDEV/R/')
+      setwd('C:/SRDEV/R/ARMA_H1')
     }
     # setwd('C:/SRDEV/R_R/R')
     # setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')

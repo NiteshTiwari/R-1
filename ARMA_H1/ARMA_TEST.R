@@ -78,7 +78,7 @@ for(jc in 200:(nrow(sc.data)-1)){
   }
   
   # Calculation of Hit Rate          
-
+  
   if (!is.na(sign(coredata(actual.diff[(jc+1),])))){
   if (sign(coredata(actual.diff[(jc+1),]))==coredata(sign(data.pred$pred))){
     if(i==1){
@@ -88,7 +88,7 @@ for(jc in 200:(nrow(sc.data)-1)){
     np=np+1
   }
   n=n+1
-  testing <- c(testing,sign(coredata(actual.diff[(jc+1),])))
+  
   }else{cna=cna+1}
 }
 
