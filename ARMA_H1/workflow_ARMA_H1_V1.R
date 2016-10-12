@@ -15,9 +15,11 @@ print(paste("COLOCATION =",COLOCATION),sep="")
 if (COLOCATION=="HOME"){
   setwd('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1')
   this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/ARMA_H1')
+  this.dir <- ('C:/Users/Michael Kilchenmann/Dropbox/R/AssetPriceForecasting/')
 }else{
   setwd('C:/SRDEV/R/ARMA_H1')
   this.dir <- ('C:/SRDEV/R/ARMA_H1')
+  this.dir2 <- ('C:/SRDEV/R/')
 }
 del.sat <- 1
 add.data <- 0
@@ -114,7 +116,7 @@ cna <- 0
  }
 
 
-write.table(forecasts, file=paste(this.dir,"/forecasts/","ARMA_forecasts2016_hourly",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
+write.table(forecasts, file=paste(this.dir2,"/forecasts/","ARMA_forecasts2016_hourly",".csv",sep=""),append=TRUE,col.names=FALSE,sep=",",row.names = FALSE)
 
 end <- print(Sys.time())
 print(end-start)
