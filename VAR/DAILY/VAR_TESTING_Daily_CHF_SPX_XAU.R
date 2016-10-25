@@ -33,7 +33,7 @@
       np <- 0
       n <- 0
       
-      source("VAR_Daily_EUR_USD_XAU_SPX.R")
+      source("VAR_Daily_CHF_SPX_XAU.R")
       
       for(j in 250:nrow(mat)-1){
         mat.T <- mat[(j-249):j,]
@@ -43,8 +43,8 @@
         options(show.signif.stars=TRUE)
         # VAR Forecast
         forecast <- predict(estimate, n.ahead=1, ci=0.8)
-        diff.forecast <- forecast$fcst$EUR_USD[1] - mat.T$EUR_USD[nrow(mat.T)]
-        diff.actual <- coredata(mat$EUR_USD[j+1])-coredata(mat$EUR_USD[j])
+        diff.forecast <- forecast$fcst$EUR_CHF[1] - mat.T$EUR_CHF[nrow(mat.T)]
+        diff.actual <- coredata(mat$EUR_CHF[j+1])-coredata(mat$EUR_CHF[j])
         # Calculation of Hit Rate          
         if (abs(diff.forecast)>0.00){
         if (sign(diff.forecast)==sign(diff.actual)){

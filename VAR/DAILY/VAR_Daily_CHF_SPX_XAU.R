@@ -41,12 +41,12 @@
     timeframe <- "D"
   }
   
-  asset <- 'EUR_USD'
+  asset <- 'SPX500_USD'
   source("Data_Retrieve.r")
   asset1 <- sc.data
   names(asset1)[names(asset1)=="closeBid"] <- asset
   
-  asset <- 'USD_JPY'
+  asset <- 'EUR_CHF'
   source("Data_Retrieve.r")
   asset2 <- sc.data
   names(asset2)[names(asset2)=="closeBid"] <- asset
@@ -100,8 +100,8 @@
   forecast <- predict(estimate, n.ahead=1, ci=0.8)
   # print(summary(estimate))
   print(forecast)
-  print(forecast$fcst$SPX500_USD[1])
-  fcst.prdt=forecast$fcst$SPX500_USD[1]
+  print(forecast$fcst$EUR_CHF[1])
+  fcst.prdt=forecast$fcst$EUR_CHF[1]
   # Plot Impulse Respnse Functions
   # plot(irf(estimate, impulse="EUR.USD"))
   

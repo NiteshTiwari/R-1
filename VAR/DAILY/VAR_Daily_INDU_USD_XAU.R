@@ -41,7 +41,7 @@
     timeframe <- "D"
   }
   
-  asset <- 'EUR_USD'
+  asset <- 'SPX500_USD'
   source("Data_Retrieve.r")
   asset1 <- sc.data
   names(asset1)[names(asset1)=="closeBid"] <- asset
